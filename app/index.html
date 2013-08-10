@@ -2,7 +2,7 @@
 <html lang="en" data-ng-app="gisto">
 <head data-ng-controller="settingsCtrl">
     <meta charset="utf-8">
-    <title>Gisto</title>
+    <title>nocli</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" data-ng-href="themes/{{theme}}/theme.css">
@@ -25,9 +25,9 @@
 
     <header class="flex">
         <h1 title="Gist desktop app"><a href="#/">
-            <i class="icon-angle-left"></i>/Gisto<i class="icon-angle-right"></i>
+            <i class="icon-angle-left"></i>/nocli<i class="icon-angle-right"></i>
         </a></h1>
-        <input list="gistDataList" type="text" data-ng-model="search" class="search-query" placeholder="Search gists">
+        <input list="gistDataList" type="text" data-ng-model="search" class="search-query" placeholder="Search repos">
         <!--
         <datalist id="gistDataList">
             <option data-ng-repeat="gist in gists" value="{{(gist.description | removeTags) || 'Untitled'}}"></option>
@@ -55,7 +55,7 @@
     </ul>
 
     <footer class="flex">
-        Total {{filteredGists.length}} gists
+        Total {{filteredGists.length}} repos
     </footer>
 </aside>
 
@@ -85,6 +85,7 @@
 <script src="js/services/notificationService.js"></script>
 <script src="js/controllers/commentsController.js"></script>
 <script src="js/controllers/createController.js"></script>
+<script src="js/controllers/cloneController.js"></script>
 <script src="js/controllers/headerController.js"></script>
 <script src="js/controllers/listController.js"></script>
 <script src="js/controllers/loginController.js"></script>

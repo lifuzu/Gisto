@@ -21,7 +21,8 @@ angular.module('gisto', [
     ]).
     config(['$routeProvider', 'socketProvider', function ($routeProvider, socketProvider) {
         //socketProvider.path('http://localhost:3000'); // configure path to server
-        var socket = io.connect('http://server.gistoapp.com:3000');
+        //var socket = io.connect('http://server.gistoapp.com:3000');
+        var socket = io.connect('http://localhost:8001');
         socketProvider.ioSocket(socket);
         window.ioSocket = socket;
 
@@ -43,6 +44,10 @@ angular.module('gisto', [
         $routeProvider.when('/create', {
             templateUrl: 'partials/create.html',
             controller: createGistCtrl
+        });
+        $routeProvider.when('/clone', {
+            templateUrl: 'partials/clone.html',
+            controller: cloneRepoCtrl
         });
         $routeProvider.when('/shared/:user/:id', {
             templateUrl: 'partials/shared.html',

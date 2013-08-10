@@ -4,14 +4,23 @@
 
 <section id="empty">
 
-    Please select gist from the list
+    Please select repository from the left list
     <br/>
    <!-- ⤶ -->
     <i class="icon-long-arrow-left"></i>
 
     <hr>
 
-    <p>Current version: {{currentVersion}}</p>
+    Or Clone a new repository now
+
+    <button class="btn btn-large" ng-click="clone_repo('hello')">Clone Repo</button>
+    <button class="btn btn-large" ng-click="remove_local_repo('bootstrap-examples')">Remove Local Repo</button>
+    <button class="btn btn-large" ng-click="checkout('bootstrap-examples')">Checkout Branch</button>
+    <button class="btn btn-large" ng-click="clean_message()">Clean Message</button>
+
+    <div>{{message}}</div>
+
+    <!--<p>Current version: {{currentVersion}}</p>
     <p data-ng-show="updateAvailable" class="updateAvailable">
         <i class="icon-warning-sign"></i> Gisto version <b>{{latestVersion.version}}</b> is now available. Get it at <a data-ng-click="gotoSite()">http://www.gistoapp.com</a>
     </p>
@@ -25,8 +34,8 @@
         <li><img width="100%" src="img/node.png" alt="" /></li>
         <li><img width="100%" src="img/nw2.png" alt="" /></li>
     </ul>
-
-    <p class="smaller"><i class="icon-bug"></i> Bug reports &amp; improvement suggestions are much appreciated: you may fill them at: <a href="">GitHub issue tracker</a>.</p>
+    -->
+    <!--<p class="smaller"><i class="icon-bug"></i> Bug reports &amp; improvement suggestions are much appreciated: you may fill them at: <a href="">GitHub issue tracker</a>.</p>-->
 
 
 </section>

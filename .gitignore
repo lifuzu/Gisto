@@ -79,4 +79,5 @@ results
 web-server.js
 npm-debug.log
 node_modules
-
+app/js/gisto.min.js
+app/js/gisto.min.js.map

@@ -1,0 +1,40 @@
+<header>
+    <ng-include src="'partials/header.html'" data-ng-controller="headerController"></ng-include>
+
+    <span class="type {{isPublic | publicOrPrivet}}"><i class="icon-{{isPublic | publicOrPrivet}}"></i></span>
+    {{description}}
+</header>
+
+<div class="toolbox">
+
+    <a href="" data-ng-click="addFile()">Add new file</a>
+    <a href="" data-ng-click="save()">Save</a>
+
+</div>
+
+<section>
+
+    <h1>Create gist</h1>
+    <input ui-keydown="{'ctrl-83':'save($event)'}" type="text" data-ng-model="description" class="desc"
+           placeholder="Description">
+    <input type="checkbox" data-ng-model="isPublic"> Public
+
+    <div data-ng-repeat="file in files">
+        <input ui-keydown="{'ctrl-83':'save($event)'}" type="text" data-ng-model="file.filename" placeholder="Filename">
+
+        <div class="the-gist" onload="initEditors()">
+
+            <div class="the-gist-name">
+                <i class="icon-file-alt"></i> <b>{{file.filename || 'filename'}}</b>
+            </div>
+            <editor ui-keydown="{'ctrl-83':'save($event)'}" language="html" index="{{$index}}"
+                    data-ng-model="file.content"></editor>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    &copy; 2013 <b>Gisto</b> | http://www.gistoapp.com
+</footer>

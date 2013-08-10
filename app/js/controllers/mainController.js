@@ -1,6 +1,6 @@
 'use strict';
 
-function mainCtrl($scope, $http, appSettings) {
+function mainCtrl($scope, $http, appSettings, socket) {
     $scope.latestVersion = appSettings.get('latestVersion');
     $scope.currentVersion = '';
     $scope.updateAvailable = false;
@@ -36,4 +36,30 @@ function mainCtrl($scope, $http, appSettings) {
             $scope.updateAvailable = true;
         }
     });
+
+    socket.on("send:message", function (message) {
+        $scope.message += message.data;
+    });
+
+    $scope.clean_message = function() {
+        $scope.message = '';
+    }
+
+    $scope.clone_repo = function(message) {
+        $scope.message = '';
+        // send a clone message with options on an url
+        socket.emit('clone', {data: 'helo'});
+    };
+
+    $scope.remove_local_repo = function(local_repo_folder_name) {
+        $scope.message = '';
+        // send a remove local repo command with option: local_repo_folder_name
+        socket.emit('remove_local_repo', {local_repo_folder_name: local_repo_folder_name});
+    };
+
+    $scope.checkout = function(topic_branch_name) {
+        $scope.message = '';
+        // send a checkout topic branch command with option: topic_branch_name
+        socket.emit('checkout', {local_repo_folder_name: 'bootstrap-examples', topic_branch_name: topic_branch_name, remote_mount_point: 'origin', remote_branch_name: 'master'});
+    };
 }
